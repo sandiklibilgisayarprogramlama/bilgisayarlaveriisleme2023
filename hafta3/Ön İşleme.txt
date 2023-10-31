@@ -1,0 +1,10 @@
+Ön İşleme
+
+1- Hepsini küçük
+2- rakam çıkacak
+3- noktalama işareti
+4- bağlaç, ben, sen - stop words
+5- split boşluğa göre
+6- sayaç (dict)
+
+

@@ -33,7 +33,7 @@ islenmis_spam_mesajlar=[]
 para_birimi = "$€£"
 rakamlar="0123456789"
 
-for mesaj in ham_mesajlar:
+for mesaj in spam_mesajlar:
     mesaj=mesaj.lower()
     for noktalama in string.punctuation:
         mesaj = mesaj.replace(noktalama,"") # 
