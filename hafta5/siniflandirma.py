@@ -3,8 +3,14 @@ with open("SMSSpamCollection", "r") as file:
     file.close()
 
 spam_kelimeler=['won','get','prize','reply','claim',
-'$','€','£','+','stop','text',
+'$','€','£','+','stop','text','@',"http",
 'mobile', 'txt', 'free', 'call']
+
+ham_kelimeler=[
+    'need','home','lor','one','want','going',"so",":-(",":)",
+    'day', 'time', 'love', 'good', 'come',"hey", "greet","what","where",
+    'like', 'got', 'know', 'ill', 'ltgt', 'get', "ok", "sorry","see"
+]
 
 print(len(spam_kelimeler))
 spam_list=[]
@@ -20,8 +26,8 @@ for mesaj in mesajlar:
 print(len(spam_list))
 sayac=0
 for spam_mesaj in spam_list:
-    for kelime in spam_kelimeler:
-        if kelime in spam_mesaj:
+    for kelime in ham_kelimeler:
+        if kelime in spam_mesaj.lower(): 
             sayac+=1
             break
 
@@ -31,8 +37,8 @@ print(100*sayac/747)
 
 ham_sayac=0
 for ham_mesaj in ham_list:
-    for kelime in spam_kelimeler:
-        if kelime in ham_mesaj:
+    for kelime in ham_kelimeler:
+        if kelime in ham_mesaj.lower():
             ham_sayac+=1
             break
 
