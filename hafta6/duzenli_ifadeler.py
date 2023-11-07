@@ -77,3 +77,14 @@ for eleman in liste:
     sonuc = re.match("05[0-9]{9}", eleman)
     if sonuc:
         print(eleman)
+
+
+# asagıdaki cumledeki eposta adresini yazınız
+cumle = """ahmetin eposta adresi ahmet@hotmail.com 
+ve ayşenin eposta adresi ayşenin ayse@gmail.com'dur.
+ asd@asd..com  a1.@gmail.com a..1@hotmail.com"""
+# * -> 0 veya daha fazla
+# + -> 1 veya daha fazla
+
+sonuc = re.findall("[a-z]+[a-z0-9.]*@[a-z0-9]+[.]{1}[a-z0-9.]+", cumle)
+print(sonuc)
