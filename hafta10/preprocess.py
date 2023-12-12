@@ -9,7 +9,23 @@ for file in os.listdir("temporary"):
         f.close()
 
     for line in lines:
-        liste.append(str(file) + ";" + line)
+        liste.append(str(file) + ";" + line.replace("\n", ""))
+
+site_control = []
+for line in liste:
+    ogrenci = line.split(";")[0]
+
+    mail = line.split(";")[1]
+    etiket = line.split(";")[2]
+    site = str(mail.split("@")[1]).split(".")[0]
+    # print(ogrenci,  site)
+    # print("- web sayfası problemi yok -")
+
+    site_control.append(site + ";" + ogrenci)
+    if site_control.count(site + ";" + ogrenci) > 3:
+        print("3 den fazla site var", ogrenci, site)
+
+        site_control.remove(site + ";" + ogrenci)
 
 
 """
