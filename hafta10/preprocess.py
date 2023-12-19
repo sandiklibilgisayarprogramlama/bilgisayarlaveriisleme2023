@@ -3,8 +3,8 @@ import os  # işletim sistemi işlemleri için kullanılır
 liste = []
 
 for file in os.listdir("temporary"):
-
-    with open("temporary/"+file, "r") as f:
+    print(file)
+    with open("temporary/"+file, "r", encoding="utf-8") as f:
         lines = f.readlines()
         f.close()
 
@@ -17,6 +17,7 @@ for line in liste:
 
     mail = line.split(";")[1]
     etiket = line.split(";")[2]
+    # print(mail)
     site = str(mail.split("@")[1]).split(".")[0]
     # print(ogrenci,  site)
     # print("- web sayfası problemi yok -")
@@ -25,12 +26,10 @@ for line in liste:
     if site_control.count(site + ";" + ogrenci) > 3:
         print("3 den fazla site var", ogrenci, site)
 
-        site_control.remove(site + ";" + ogrenci)
 
-
-"""
 with open("tum_data.csv", "w", encoding="utf-8") as f:
     for line in liste:
-        f.write(line)
+        email = line.split(";")[1]
+        label = line.split(";")[2]
+        f.write(email + ";" + label + "\n")
     f.close()
-"""
