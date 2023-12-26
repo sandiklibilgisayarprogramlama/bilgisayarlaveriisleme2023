@@ -36,6 +36,8 @@ vectorizer = TfidfVectorizer(analyzer='char', ngram_range=(1, 3))
 train_ozellik_liste = vectorizer.fit_transform(x_train)
 test_ozellik_liste = vectorizer.transform(x_test)
 
+print(train_ozellik_liste)
+
 ogretici = DecisionTreeClassifier(random_state=42)
 # eğitim verileri ile eğitim yapılıyor.
 ogretici.fit(train_ozellik_liste, y_train)
